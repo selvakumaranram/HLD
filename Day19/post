@@ -1,0 +1,53 @@
+🚦 **Rate Limiting: Protecting APIs from Traffic Spikes and Abuse**
+
+What happens when your API suddenly receives **50,000 requests/sec** instead of 1,000?
+
+Without protection, your application servers, database, and downstream services can quickly become overloaded.
+
+That’s where **Rate Limiting** becomes an essential part of distributed system design.
+
+In my latest **We Connect** architecture series, I explain:
+
+🔹 What is Rate Limiting and why do we need it?
+🔹 Rate Limiting vs Throttling
+🔹 Fixed Window
+🔹 Sliding Window
+🔹 Token Bucket
+🔹 Leaky Bucket
+🔹 Distributed Rate Limiting
+🔹 Using Redis as shared rate-limit state
+🔹 Atomic operations and race conditions
+🔹 Rate limiting by User, IP, API Key, Endpoint & Tenant
+🔹 Handling `HTTP 429 Too Many Requests`
+🔹 How Rate Limiting fits into the **We Connect** architecture
+🔹 How Rate Limiting works together with **Caching & Circuit Breaker**
+
+### A simple distributed architecture:
+
+Client
+↓
+API Gateway
+↓
+Rate Limiter
+↓
+Redis
+↓
+Microservices
+
+The key takeaway:
+
+> **Rate limiting doesn't just protect your API. It protects everything behind your API.**
+
+Choosing the right algorithm depends on your requirements:
+
+⚡ **Fixed Window** → Simple
+🎯 **Sliding Window** → More accurate
+🪣 **Token Bucket** → Controlled bursts
+💧 **Leaky Bucket** → Smooth traffic
+🌐 **Redis + Distributed Rate Limiting** → Multiple service instances
+
+Building reliable distributed systems isn't just about handling more traffic.
+
+It's about **controlling traffic intelligently.**
+
+#SystemDesign #DistributedSystems #Microservices #RateLimiting #Redis #APIGateway #BackendDevelopment #Java #SpringBoot #WeConnect #SoftwareArchitecture
