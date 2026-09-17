@@ -154,6 +154,106 @@ Separating Reads and Writes for Massive Scale
 
 Command Query Responsibility Segregation and when it actually makes sense.
 
+
+The overall WeConnect roadmap
+
+I'd organize the series into capability groups:
+
+🟦 Core Social Platform
+
+21. Feed & Post
+Instagram vs Twitter vs LinkedIn
+
+22. Post Creation
+Different content types, one publishing architecture
+
+23. Likes & Comments
+High-volume engagement
+
+24. Follow & Connections
+Different social relationships
+
+25. Notifications
+Event-driven notification architecture
+
+26. Search
+People, posts, hashtags, topics
+
+27. Feed Ranking
+How the platform decides what you see
+
+🟩 Media Platform
+
+28. Media Storage
+Photos, videos, documents
+
+29. Image Processing
+Resize, thumbnails, optimization
+
+30. Short Video / Reels
+Instagram Reels vs YouTube Shorts vs TikTok
+
+31. Video Streaming
+CDN, transcoding, adaptive streaming
+
+🟨 Real-Time Platform
+
+32. Chat
+WhatsApp/Messenger-style architecture
+
+33. Presence
+Online/offline/last seen
+
+34. Real-Time Notifications
+
+35. Live Streaming
+
+🟥 Scale & Distributed Systems
+
+Then WeConnect can start connecting everything we've already discussed:
+
+Kafka
+Redis
+CQRS
+Saga
+Circuit Breaker
+Service Discovery
+Idempotency
+Rate Limiting
+Distributed Caching
+Database Sharding
+Event-driven architecture
+Consistency
+Observability
+And there's one principle I really like in your idea
+
+We should not copy Instagram, Twitter, or LinkedIn.
+
+Instead:
+
+WeConnect learns from all three.
+
+For example:
+
+             Instagram
+                 │
+                 │
+Twitter ───── WeConnect ───── LinkedIn
+                 │
+                 │
+              YouTube
+
+Each platform contributes a different engineering problem.
+
+Instagram teaches us visual/social content.
+Twitter teaches us real-time conversations and high-velocity content.
+LinkedIn teaches us professional relationships and relevance.
+YouTube teaches us video at massive scale.
+
+And WeConnect becomes the architecture that combines the lessons without becoming dependent on any one platform's design.
+
+So yes — I would change our original roadmap to this capability-based comparison model. It will make the WeConnect series feel much more like a senior system-design engineering series, rather than a collection of "Design Instagram / Design Twitter" articles.
+
 21. Design WhatsApp
 
 Messaging, WebSockets, message delivery, presence, and offline messages.
@@ -193,5 +293,4 @@ Product catalog, inventory, cart, orders, payments, and fulfillment.
 30. Design a Notification System
 
 Push notifications, email, SMS, fan-out, retries, and delivery guarantees.
-
 
